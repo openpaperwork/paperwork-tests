@@ -1,4 +1,4 @@
-paperwork-tests
+Paperwork-tests
 ===============
 
-Paperwork unit and functionnal tests
+Unit and functionnal tests for Paperwork.
