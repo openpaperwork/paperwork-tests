@@ -1,0 +1,238 @@
+Chacun de ces termes (y compris l'abonnement) intègre le
+prix de l'acheminement de l'électricité sur les réseaux.
+Les plages horaires des périodes tarifaires sont indiquées sur
+les factures. Ces plages horaires peuvent varier d'un client à
+I'autre, dans une même zone géographique et en fonction
+de la date de souscription ou de modification du contrat.
+EDF peut modifier, moyennant un préavis de six mois, ces
+horaires pour chaque client.
+En cas de non-acceptation par le client de cette modification
+d'horaires, le client peut résilier son contrat dans les condi-
+tions de l'article 3-4.
+Pour un même tarif, le nombre d'heures souscrites dans
+chaque période tarifaire est identique pour chaque client.
+Les heures réelles de début et de fin des périodes tarifaires
+peuvent s'écarter de quelques minutes des horaires indi-
+qués sur les factures. À l'exception des jours de changement
+d'heure, elles respectent cependant les durées journalières
+des périodes tarifaires précisées dans les tarifs de vente.
+4-2 Mise en extinction - Suppression de tarif
+Un tarif peut être mis en extinction ou supprimé, conformé-
+ment à la réglementation en vigueur et suite à une décision
+des pouvoirs publics.
+~ Un tarif mis en extinction ne peut plus être proposé aux
+clients à compter de la date de prise d'effet de la mise en
+extinction. La mise en extinction d'un tarif n'entraîne pas
+la résiliation du contrat en cours, y compris lors de la tacite
+reconduction de celui-ci. Le client conserve ainsi le tarif en
+extinction tant qu'il ne demande pas de modification du tarif
+souscrit. À compter de la date d'effet de la mise en extinc-
+tion, l'application d'un tarif mis en extinction ne pourra être
+demandée par un client pour un nouveau contrat. Un tarif
+mis en extinction peut évoluer suite à une décision des pou-
+voirs publics dans les conditions prévues à l'article 7-3 des
+présentes Conditions Générales de Vente.
+U Quand un tarif est supprimé, EDF en informe le client dans
+un délai de trois mois a compter dela date d'effet de la
+décision de suppression du tarif et l'avise de la nécessité de
+choisir un autre tarif parmi ceux en vigueur. S'il n'a pas opéré
+ce choix dans un délai d'un an à compter de la date d'effet
+de la suppression du tarif, le client se verra appliquer la cor-
+respondance tarifaire prévue à cet effet par la décision des
+pouvoirs publics de suppression d'un tarif. Si le changement
+detarif nécessite une modification du dispositif de comptage
+du client, le coût de cette modification est pris en charge par
+EDF.
+4-3 Conseil tarifaire
+Sur la base des éléments d'information recueillis auprès du
+client sur ses besoins, EDF le conseille sur le tarif à souscrire
+pour son point de livraison lors de la conclusion du contrat.
+ll appartient au client de s'assurer de l'adéquation du tarif
+souscrit en cas d'évolution de ses besoins.
+EDF s'engage à répondre, à titre gracieux, à toute demande
+du client qui souhaiterait disposer d'éléments d'information
+généraux pour s'assurer que son tarif est adapté à son mode
+de consommation.
+Le client peut demander à modifier son tarif à tout moment.
+Ce changement peut donner lieu à la facturation de frais
+conformément au Catalogue des Prestations disponible
+sur le site Wwvi/.erdfdistributionfr ou sur simple demande
+auprès d'EDF.
+Lorsqu'à l'occasion de ce changement de tarif, le client ob-
+tient une augmentation de la puissance souscrite moins d'un
+an après avoir bénéficié d'une diminution de cette puissance,
+ou lorsque le client obtient une diminution de la puissance
+souscrite moins d'un an après avoir bénéficié d'une augmen-
+tation de cette puissance, il se verra facturer par EDF, en plus
+du prix mentionné ci-dessus, le montant facturé pour un tel
+changement de puissance.
+En cas de changement de tarif, il n'y aura pas d'application
+rétroactive du nouveau tarif donnant lieu à un rembourse-
+ment au client.
+5. š0Uãšl\li'l'URE ET CARA£TÉR3STiQUES
+ne aêtecïsicarê
+5-1 Continuité et qualité de fourniture d'électrícité
+Conformément à la réglementation en vigueur (dont le dé-
+cret n° 2007-1826 du 24 décembre 2007 et l'arrêté du même
+jour relatif aux niveaux de qualité - ci-après «le décret qua-
+lité ›› -, aux prescriptions du cahier des charges de concession
+applicable et aux prescriptions techniques en matière de
+qualité des réseaux publics de distribution et de transport
+d'électricité), EDF s'engage:
+0 à assurer une fourniture de qualité d'électrícité et,
+- à mettre en œuvre tous les moyens pour assurer une four-
+niture continue d'électrícité,
+sauf dans les cas qui relèvent de la force majeure ou des
+circonstances exceptionnelles telles que définies par le
+«décret qualité››, ou des limites des techniques concernant
+le réseau ou le système électrique et existantes au moment
+de l'incident, et dans les cas énoncés ci-après:
+~ lorsque des inten/entions programmées sur le réseau sont
+nécessaires. Celles-ci sont alors portées à la connaissance des
+clients, avec l'indication de la durée prévisible d'interruption,
+par voie de presse, d'affichage ou d'informations individua-
+lisées. La durée d'une interruption peut exceptionnellement
+atteindre dix heures mais ne peut en aucun cas les dépasser;
+° dans les cas cités à l'article 5-4 des présentes Conditions
+Générales de Vente;
+~ lorsque la fourniture d'électrícité est affectée pour des rai-
+sons accidentelles sans faute dela part d'EDF d'interruptions
+dues aux faits de tiers.
+Lorsqu'un client du réseau public de distribution d'électrícité
+subit une interruption de fourniture pleine et continue supé-
+rieure à une durée définie par la réglementation en vigueur
+(plus précisément le décret n” 2001-365 du 26 avril 2001
+modifié par le décret nf' 2005-1750 du 30 décembre 2005,
+actuellement six heures) et imputable à une défaillance des
+réseaux publics de transport ou de distribution, un abatte-
+ment lui sera versé par EDF.
+Cet abattement est égal à 2% de la part fixe annuelle du
+tarif d'utilisation des réseaux publics liée à la puissance sous-
+crite pour une coupure de plus de six heures et de moins de
+douze heures, de 4% pour une coupure de plus de douze
+heures et de moins de dix-huit heures, et ainsi de suite par
+périodes entières de six heures. En aucun cas la somme des
+abattements consentis au cours d'une même année civile ne
+peut être supérieure au montant de la part fixe annuelle du
+tarif d'utilisation des réseaux publics.
+De manière générale, il appartient au client de prendre les
+précautions élémentaires pour se prémunir contre les consé-
+quences des interruptions et défauts dans la qualité de la
+fourniture. EDF reste responsable du non-respect de ses obli-
+gations contractuelles telles que mentionnées à l'article 5-1
+des présentes Conditions Générales de Vente. EDF se tient à
+la disposition du client pour le conseiller.
+5-2 Caractéristiques de l'électricité livrée
+EDF met à disposition sur simple demande les spécifications
+relatives au courant électrique distribué au Point de livrai-
+son, notamment celles définies dans le cahier des charges de
+concession.
+En particulier, les caractéristiques de la tension fournie sont
+conformes à la norme NF EN 50160 disponible auprès de
+l'AFNOR.
+5-3 Détermination des quantités
+La consommation d'électrícité est calculée, dans chaque
+poste tarifaire, par différence entre le dernier index ayant
+servi à la facturation précédente et l'index relevé par EDF
+ou communiqué parle client ou, àdéfaut, l'index estimé par
+EDF sur la base des consommations précédentes.
+5-4 Interruption ou refus de la fourniture
+à l'initiative d'EDF _
+Conformément au cahier des charges de concession pour
+le service public de l'électricité précité, EDF peut procéder
+à l'interruption ou refuser la fourniture d'électrícité dans les
+cas suivants:
+0 injonction émanant de l'autorité compétente en matière
+d'urbanisme ou de police en cas de trouble à l'ordre public;
+- non-justification de la conformité des installations à la
+réglementation et aux normes en vigueur;
+- danger grave et immédiat porté à la connaissance d'EDF;
+0 modification, dégradation ou destruction volontaire des
+ouvrages et comptages exploités par EDF, quelle qu'en soit
+la cause;
+~ trouble causé par un client ou par ses installations et appa-
+reillages, affectant l'exploitation ou la distribution d'énergie;
+0 usage illicite ou frauduleux de l'électricité;
+0 non-paiement des factures (voir articles 8-3, 8-4 et 8-5),
+Dans un souci de sécurité, EDF, après avoir reconnu que les
+installations sont défectueuses ou si le client refuse les véri-
+fications, pourra interrompre la fourniture de l'électricité.
+5. MATÈMEL DE UVRAISON E1' DE MESURE
+os Lfétectkaciïè
+6-1 Description des installations
+Les appareils de mesure et de contrôle permettent le
+contrôle des caractéristiques de la fourniture et leur adap-
+tation aux conditions du contrat souscrit par le client, et
+senrent à la facturation de l'énergie.
+Ils sont plombés par EDF. Ils comprennent notamment le dis-
+joncteur de branchement, réglé en fonction dela puissance
+tenue à disposition, le compteur pour l'enregistrement des
+consommations et éventuellement un dispositif télécom-
+mande pour répartir les consommations dans les postes tari-
+faires prévus au contrat.
+6-2 Propriété des appareils de mesure et de contrôle
+Les appareils de mesure et de contrôle sont fournis et posés
+par EDE Ils font partie du domaine concédé.
+6-3 Entretien et vérification des appareils de me-
+sure et de contrôle
+Les appareils de mesure et de contrôle sont entretenus et
+vérifiés par EDF
+À cette fin, les agents d'EDF doivent pouvoir accéder à tout
+moment a ces appareils sur justification de leur identité.
+Les frais de réparation ou de remplacement des appareils qui
+résultent, le cas échéant, de ces visites sont à la charge d'EDF
+(sauf détérioration imputable au client).
+EDF pourra procéder au remplacement des appareils en
+fonction des évolutions technologiques.
+Le client peut demander à tout moment la vérification de ces
+appareils, soit par EDF, soit par un expert choisi d'un commun
+accord parmi les organismes agréés par le service chargé du
+contrôle des instruments de mesure.
+Les frais entraînés par cette vérification sont à la charge d'EDF
+si ces appareils ne sont pas reconnus exacts, dans les limites
+réglementaires de tolérance, et à celle du client dans le cas
+contraire. Le montant de ces frais figure dans le Catalogue des
+Prestations disponible sur le site wwvi/.erdfdistributionfr ou
+sur simple demande auprès d'EDF
+6-4 Dysfonctionnement des appareils
+En cas de fonctionnement défectueux des appareils de
+mesure ou de contrôle ayant une incidence sur l'enregistre-
+ment des consommations, une rectification de facturation
+sera établie par comparaison avec des périodes similaires de
+consommation du client. '
+À défaut, la quantité d'énergie livrée sera déterminée par
+analogie avec celle de clients présentant des caractéristiques
+de consommation comparables.
+Le client doit veiller à ne pas porter atteinte lui-mêmeà
+l'intégrité des appareils permettant le calcul de ses consom-
+mations d'électrícité. '
+6-5 Accès aux installations pour le relevé
+des compteurs
+Le client doit prendre toute disposition pour permettre
+l'accès et le relevé de ses compteurs par EDF au moins une
+fois par an. Dans les cas où l'accès aux compteurs nécessite la
+présence du client, celui-ci est informé au préalable du pas-
+sage d'EDE Le client absent lors du relevé du compteur ala
+possibilité de communiquer son relevé à EDF (autorelevé).
+L'autorelevé ne dispense pas le client de l'obligation de lais-
+ser EDF accéder à son compteur.
+Si le compteur n'a pas été relevé au cours des douze derniers
+mois suite à l'absence du client lors du passage d'EDF, EDF
+pourra demander un rendez-vous à la convenance du client
+pour un relevé spécial payant à la charge du client.
+Le montant de ce relevé spécial figure dans le Catalogue des
+Prestations disponible sur le site wwvi/.erdfdistributionfr ou
+sur simple demande auprès d'EDF.
+Y. FACTUSATIDN DE L'ÉLECïRiClTÉ
+ET DES PRESTATWNS ANNEXES
+7-1 Établissement cle la facture
+Chaque facture d'électrícité comporte notamment:
+¢ le montant de l'abonnement correspondant à la période
+suivante de facturation;
+1 la consommation d'électrícité (relevée ou estimée) et son
+montant sur la période de facturation;
+* s'il y a lieu le montant des frais correspondant à des pres-
+.tations annexes. Les catalogues de ces prestations et les
+prix applicables sont disponibles sur les sites vi/wi/i/.bleucíe/.
+edf.com, wwW.erdfdistribution.fr ou sur simple demande
+auprès d'EDF. EDF informe le client du prix de la prestation
