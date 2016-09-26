@@ -1,6 +1,8 @@
 *~
 *.py[cod]
 tmp
+paperwork.conf
+data
 
 # C extensions
 *.so
