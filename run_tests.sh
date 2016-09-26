@@ -1,8 +1,7 @@
 #!/bin/sh
 
 echo "Initializing test environment ..."
-export XDG_DATA_HOME=tmp
-export GTK_THEME=NonexistingTheme
+. ./env
 
 rm -rf tmp
 mkdir tmp

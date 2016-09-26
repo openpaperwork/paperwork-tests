@@ -1,0 +1,2 @@
+export XDG_DATA_HOME=tmp
+export GTK_THEME=NonexistingTheme
