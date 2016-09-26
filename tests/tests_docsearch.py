@@ -1,21 +1,14 @@
 import os
-import sys
 
 import unittest
 
-from paperwork.backend import docsearch
+from paperwork_backend import docsearch
 
 
 class TestSearch(unittest.TestCase):
-    def progress_cb(self, progression, total, step, doc=""):
-        print ("%s : %d/%d : %s ..." % (step, progression, total, doc))
-
     def setUp(self):
-        print ""
-        print "- Initializing ..."
-        self.docsearch = docsearch.DocSearch(os.path.join(os.getcwd(), "data"),
-                                            self.progress_cb)
-        print "- Testing ..."
+        self.docsearch = docsearch.DocSearch(os.path.join(os.getcwd(), "data"))
+        self.docsearch.reload_index()
 
     def test_all(self):
         docs = self.docsearch.find_documents(u"")
@@ -44,17 +37,15 @@ class TestSearch(unittest.TestCase):
         docids = [doc.docid for doc in docs]
         self.assertEqual(len(docids), 3)
         self.assertIn("20090215_1952_46", docids)  # contains "l'installation"
-        self.assertIn("20121213_1946_26", docids)  # contains "installation" 
+        self.assertIn("20121213_1946_26", docids)  # contains "installation"
         self.assertIn("weird name", docids)  # contains "l'installation"
 
         # unicode
-        # FIXME(Jflesch)
-        #txt = unicode('\xc3\xa9ligibilit\xc3\xa9', encoding='utf-8')
-        #docs = self.docsearch.find_documents(txt)
-        #docids = [doc.docid for doc in docs]
-        #self.assertEqual(len(docids), 1)
-        #self.assertIn("weird name", docids)
-
+        txt = unicode('\xc3\xa9ligibilit\xc3\xa9', encoding='utf-8')
+        docs = self.docsearch.find_documents(txt)
+        docids = [doc.docid for doc in docs]
+        self.assertEqual(len(docids), 1)
+        self.assertIn("weird name", docids)
 
     def test_multiple_keywords(self):
         docs = self.docsearch.find_documents(u"gratuitement l'installation")
@@ -76,30 +67,37 @@ class TestSearch(unittest.TestCase):
         self.assertIn("weird name", docids)
 
         # weird thingies should be ignored
-        docs = self.docsearch.find_documents(u"l'installation ' [) #####  gratuitement")
+        docs = self.docsearch.find_documents(
+            u"l'installation ' [) #####  gratuitement"
+        )
         docids = [doc.docid for doc in docs]
         self.assertEqual(len(docids), 2)
         self.assertIn("20121213_1946_26", docids)
         self.assertIn("weird name", docids)
 
     def test_negation(self):
-        docs = self.docsearch.find_documents(u"installation AND NOT gratuitement")
+        docs = self.docsearch.find_documents(
+            u"installation AND NOT gratuitement"
+        )
         docids = [doc.docid for doc in docs]
         self.assertEqual(len(docids), 1)
         self.assertIn("20090215_1952_46", docids)
 
         # order shouldn't matter
-        docs = self.docsearch.find_documents(u"NOT gratuitement AND installation")
+        docs = self.docsearch.find_documents(
+            u"NOT gratuitement AND installation"
+        )
         docids = [doc.docid for doc in docs]
         self.assertEqual(len(docids), 1)
         self.assertIn("20090215_1952_46", docids)
 
-        # FIXME(Jflesch)
-        #docs = self.docsearch.find_documents(u"NOT gratuitement AND NOT installation")
-        #docids = [doc.docid for doc in docs]
-        #self.assertEqual(len(docids), 2)
-        #self.assertIn("20130126_1833_26", docids)
-        #self.assertIn("20130126_1902_26", docids)
+        docs = self.docsearch.find_documents(
+            u"NOT gratuitement AND NOT installation"
+        )
+        docids = [doc.docid for doc in docs]
+        self.assertEqual(len(docids), 2)
+        self.assertIn("20130126_1833_26", docids)
+        self.assertIn("20130126_1902_26", docids)
 
     def test_label(self):
         docs = self.docsearch.find_documents(u"basiclabel")
@@ -122,15 +120,9 @@ class TestSearch(unittest.TestCase):
 
 
 class TestSuggestions(unittest.TestCase):
-    def progress_cb(self, progression, total, step, doc=""):
-        print ("%s : %d/%d : %s ..." % (step, progression, total, doc))
-
     def setUp(self):
-        print ""
-        print "- Initializing ..."
-        self.docsearch = docsearch.DocSearch(os.path.join(os.getcwd(), "data"),
-                                            self.progress_cb)
-        print "- Testing ..."
+        self.docsearch = docsearch.DocSearch(os.path.join(os.getcwd(), "data"))
+        self.docsearch.reload_index()
 
     def test_single_keyword(self):
         sugges = self.docsearch.find_suggestions(u"installa")
@@ -152,11 +144,10 @@ class TestSuggestions(unittest.TestCase):
         self.assertEqual(len(sugges), 1)
         self.assertIn("annoyingly", sugges)
 
-        # FIXME(Jflesch)
-        #sugges = self.docsearch.find_suggestions(u"annoyingl comple")
-        #self.assertEqual(len(sugges), 2)
-        #self.assertIn("annoyingly comple", sugges)
-        #self.assertIn("annoyingl complex", sugges)
+        sugges = self.docsearch.find_suggestions(u"annoyingl comple")
+        self.assertEqual(len(sugges), 2)
+        self.assertIn("annoyingly comple", sugges)
+        self.assertIn("annoyingl complex", sugges)
 
     def test_negation(self):
         sugges = self.docsearch.find_suggestions(u"NOT installatio")
@@ -165,27 +156,4 @@ class TestSuggestions(unittest.TestCase):
         self.assertIn("NOT installations", sugges)
 
     def tearDown(self):
-        print "- Test done"
-
-
-def get_all_tests():
-    all_tests = unittest.TestSuite()
-
-    tests = unittest.TestSuite([
-            TestSearch("test_all"),
-            TestSearch("test_single_keyword"),
-            TestSearch("test_multiple_keywords"),
-            TestSearch("test_negation"),
-            TestSearch("test_label"),
-        ])
-    all_tests.addTest(tests)
-
-    tests = unittest.TestSuite([
-            TestSuggestions("test_single_keyword"),
-            TestSuggestions("test_labels"),
-            TestSuggestions("test_multiple_keywords"),
-            TestSuggestions("test_negation"),
-        ])
-    all_tests.addTest(tests)
-
-    return all_tests
+        print("- Test done")
