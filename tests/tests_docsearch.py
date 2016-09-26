@@ -1,5 +1,11 @@
 import unittest
 
+import gi
+gi.require_version('Pango', '1.0')
+gi.require_version('PangoCairo', '1.0')
+gi.require_version('Poppler', '0.18')
+gi.require_version('Gdk', '3.0')
+
 from paperwork_backend.config import PaperworkConfig
 from paperwork_backend import docsearch
 
