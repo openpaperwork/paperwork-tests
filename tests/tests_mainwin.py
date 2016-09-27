@@ -56,7 +56,9 @@ class PaperworkInstance(object):
         for scheduler in self.main_window.schedulers.values():
             scheduler.stop()
         pytestshot.wait()
+        time.sleep(0.1)  # force thread yielding
         self.main_window.window.hide()
+        time.sleep(0.1)  # force thread yielding
         pytestshot.wait()
         pytestshot.exit()
         self.thread.join()
