@@ -130,3 +130,28 @@ class TestBasicMainWin(unittest.TestCase):
         pytestshot.assertScreenshot(
             self, "test_main_win_show_doc_multiple_pages", sc
         )
+
+    def test_show_page(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_doc_multiple_pages", sc
+            )
+
+            GLib.idle_add(
+                self.pw.main_window.page_drawers[2].emit,
+                'page-selected'
+            )
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_page", sc
+            )
+        finally:
+            self.pw.stop()
