@@ -9,6 +9,7 @@ import time
 import shutil
 import threading
 
+import pyinsane2
 import pytestshot
 
 import gi
@@ -22,6 +23,9 @@ from gi.repository import Gtk
 
 from paperwork.frontend import mainwindow
 from paperwork.frontend.util.config import load_config
+
+
+pyinsane2.init()
 
 
 def setup_test_env():
