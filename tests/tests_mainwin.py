@@ -14,7 +14,6 @@ gi.require_version('Poppler', '0.18')
 gi.require_version('Gdk', '3.0')
 gi.require_version('Gtk', '3.0')
 
-from gi.repository import GLib
 from gi.repository import Gtk
 
 
@@ -23,6 +22,7 @@ class PaperworkInstance(object):
         config = load_config()
         config.read()
         mainwindow.__version__ = "1.2.3.4"
+        mainwindow.g_must_init_app = False
         self.main_window = mainwindow.MainWindow(config)
         mainwindow.ActionRefreshIndex(self.main_window, config).do()
         self.thread = threading.Thread(target=self._gtk_thread)
@@ -37,10 +37,15 @@ class PaperworkInstance(object):
 
     gdk_window = property(_get_gdk_win)
 
+    def _get_docsearch(self):
+        return self.main_window.docsearch
+
+    docsearch = property(_get_docsearch)
+
     def wait(self):
         time.sleep(0.1)  # force thread yielding
         pytestshot.wait()
-        for i in range(0, 10):
+        for i in range(0, 5):
             loop_again = True
             while loop_again:
                 time.sleep(0.1)  # force thread yielding
@@ -74,11 +79,36 @@ class TestBasicMainWin(unittest.TestCase):
     def setUp(self):
         self.pw = PaperworkInstance()
 
-    def test_main_win(self):
+    def test_main_win_start(self):
         self.pw.start()
         try:
             sc = pytestshot.screenshot(self.pw.gdk_window)
-            sc.load()
         finally:
             self.pw.stop()
-        pytestshot.assertScreenshot(self, "test_basic_main_win", sc)
+        pytestshot.assertScreenshot(self, "test_main_win_start", sc)
+
+    def test_main_win_show_doc_one_page(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20130126_1902_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+        finally:
+            self.pw.stop()
+        pytestshot.assertScreenshot(self, "test_main_win_show_doc_one_page", sc)
+
+    def test_show_doc_multiple_pages(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+        finally:
+            self.pw.stop()
+        pytestshot.assertScreenshot(
+            self, "test_main_win_show_doc_multiple_pages", sc
+        )
