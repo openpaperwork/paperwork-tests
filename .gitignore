@@ -3,6 +3,9 @@
 tmp
 paperwork.conf
 data
+*_diff.png
+*_orig.png
+*_out.png
 
 # C extensions
 *.so
