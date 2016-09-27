@@ -1,3 +1,10 @@
+import os
+os.environ['LANG'] = 'C'
+os.environ['XDG_DATA_HOME'] = 'tmp'
+os.environ['GTK_THEME'] = 'HighContrast'
+os.environ['XDG_DTA_DIRS'] = '/usr/local/share:/usr/share'
+
+import shutil
 import threading
 import time
 import unittest
@@ -14,14 +21,25 @@ gi.require_version('Poppler', '0.18')
 gi.require_version('Gdk', '3.0')
 gi.require_version('Gtk', '3.0')
 
+from gi.repository import GLib
 from gi.repository import Gtk
 
 
 class PaperworkInstance(object):
     def start(self):
+        if os.path.exists("tmp"):
+            shutil.rmtree("tmp")
+        if os.path.exists("data"):
+            shutil.rmtree("data")
+        if os.path.exists("paperwork.conf"):
+            os.unlink("paperwork.conf")
+        os.mkdir("tmp")
+        shutil.copy("orig_paperwork.conf", "paperwork.conf")
+        shutil.copytree("orig_data", "data")
+
         config = load_config()
         config.read()
-        mainwindow.__version__ = "1.2.3.4"
+        mainwindow.__version__ = "TEST"
         mainwindow.g_must_init_app = False
         self.main_window = mainwindow.MainWindow(config)
         mainwindow.ActionRefreshIndex(self.main_window, config).do()
@@ -54,7 +72,7 @@ class PaperworkInstance(object):
                 loop_again = Gtk.events_pending()
                 if loop_again:
                     pytestshot.wait()
-        time.sleep(0.1)  # force thread yielding
+        time.sleep(0.5)  # force thread yielding
 
     def stop(self):
         pytestshot.wait()
