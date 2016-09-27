@@ -1,4 +1,0 @@
-export LANG=C
-export XDG_DATA_HOME=tmp
-export GTK_THEME=HighContrast
-export XDG_DATA_DIRS=/usr/local/share:/usr/share
