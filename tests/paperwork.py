@@ -24,17 +24,21 @@ from paperwork.frontend import mainwindow
 from paperwork.frontend.util.config import load_config
 
 
+def setup_test_env():
+    if os.path.exists("tmp"):
+        shutil.rmtree("tmp")
+    if os.path.exists("data"):
+        shutil.rmtree("data")
+    if os.path.exists("paperwork.conf"):
+        os.unlink("paperwork.conf")
+    os.mkdir("tmp")
+    shutil.copy("orig_paperwork.conf", "paperwork.conf")
+    shutil.copytree("orig_data", "data")
+
+
 class PaperworkInstance(object):
     def start(self):
-        if os.path.exists("tmp"):
-            shutil.rmtree("tmp")
-        if os.path.exists("data"):
-            shutil.rmtree("data")
-        if os.path.exists("paperwork.conf"):
-            os.unlink("paperwork.conf")
-        os.mkdir("tmp")
-        shutil.copy("orig_paperwork.conf", "paperwork.conf")
-        shutil.copytree("orig_data", "data")
+        setup_test_env()
 
         config = load_config()
         config.read()

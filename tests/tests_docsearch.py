@@ -1,5 +1,8 @@
 import unittest
 
+# this import must be done *BEFORE* Gtk/Glib/etc *AND* pytestshot !
+from . import paperwork
+
 import gi
 gi.require_version('Pango', '1.0')
 gi.require_version('PangoCairo', '1.0')
@@ -12,6 +15,8 @@ from paperwork_backend import docsearch
 
 class DocSearchInit(object):
     def init_docsearch(self):
+        paperwork.setup_test_env()
+
         new_docs = set()
         upd_docs = set()
         missing_docs = set()
