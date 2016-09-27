@@ -13,6 +13,7 @@ gi.require_version('Poppler', '0.18')
 gi.require_version('Gdk', '3.0')
 gi.require_version('Gtk', '3.0')
 
+from gi.repository import Gdk
 from gi.repository import GLib
 
 
@@ -53,6 +54,11 @@ class TestBasicMainWin(unittest.TestCase):
         pytestshot.assertScreenshot(
             self, "test_main_win_show_doc_multiple_pages", sc
         )
+
+
+class TestPage(unittest.TestCase):
+    def setUp(self):
+        self.pw = paperwork.PaperworkInstance()
 
     def test_show_page(self):
         self.pw.start()
@@ -119,3 +125,48 @@ class TestBasicMainWin(unittest.TestCase):
             )
         finally:
             self.pw.stop()
+
+    def test_box_highlight_on_mouseover(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_doc_multiple_pages", sc
+            )
+
+            GLib.idle_add(
+                self.pw.main_window.page_drawers[2].emit,
+                'page-selected'
+            )
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_page", sc
+            )
+
+            # wait for boxes to load
+            time.sleep(1)
+
+            mouse_event = Gdk.Event.new(Gdk.EventType.MOTION_NOTIFY)
+            mouse_event.x = 250
+            mouse_event.y = 356
+
+            canvas = self.pw.main_window.img['canvas']
+            GLib.idle_add(canvas.emit, 'motion-notify-event', mouse_event)
+            self.pw.wait()
+            canvas.redraw()
+            time.sleep(1)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_box_highlight_on_mouseover", sc
+            )
+        finally:
+            self.pw.stop()
+

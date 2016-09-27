@@ -5,6 +5,10 @@ os.environ['XDG_DATA_HOME'] = 'tmp'
 os.environ['GTK_THEME'] = 'HighContrast'
 os.environ['XDG_DTA_DIRS'] = '/usr/local/share:/usr/share'
 
+import logging
+logging.disable(logging.DEBUG)
+logging.getLogger('pycountry.db').setLevel(logging.WARNING)
+
 import time
 import shutil
 import threading
@@ -48,6 +52,7 @@ class PaperworkInstance(object):
         config.read()
         mainwindow.__version__ = "TEST"
         mainwindow.g_must_init_app = False
+
         self.main_window = mainwindow.MainWindow(config)
         mainwindow.ActionRefreshIndex(self.main_window, config).do()
         self.thread = threading.Thread(target=self._gtk_thread)
