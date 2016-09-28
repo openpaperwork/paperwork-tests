@@ -149,9 +149,6 @@ class TestPage(unittest.TestCase):
                 self, "test_main_win_show_page", sc
             )
 
-            # wait for boxes to load
-            time.sleep(1)
-
             mouse_event = Gdk.Event.new(Gdk.EventType.MOTION_NOTIFY)
             mouse_event.x = 250
             mouse_event.y = 356
@@ -159,13 +156,63 @@ class TestPage(unittest.TestCase):
             canvas = self.pw.main_window.img['canvas']
             GLib.idle_add(canvas.emit, 'motion-notify-event', mouse_event)
             self.pw.wait()
-            canvas.redraw()
-            time.sleep(1)
-            self.pw.wait()
 
             sc = pytestshot.screenshot(self.pw.gdk_window)
             pytestshot.assertScreenshot(
                 self, "test_main_win_box_highlight_on_mouseover", sc
+            )
+        finally:
+            self.pw.stop()
+
+    def _set_show_all_to_true(self, main_win):
+        main_win.show_all_boxes = True
+
+    def test_box_highlight_all(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_doc_multiple_pages", sc
+            )
+
+            GLib.idle_add(
+                self.pw.main_window.page_drawers[2].emit,
+                'page-selected'
+            )
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_show_page", sc
+            )
+
+            action = self.pw.main_window.actions['open_view_settings'][1]
+            GLib.idle_add(action.do)
+            self.pw.wait()
+            GLib.idle_add(self._set_show_all_to_true, self.pw.main_window)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_box_highlight_all", sc
+            )
+
+            self.pw.main_window.popovers['view_settings'].hide()
+            self.pw.wait()
+
+            # make sure the boxes are still highlighted when we switch to
+            # another document
+            doc = self.pw.docsearch.get_doc_from_docid("20130126_1833_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_box_highlight_all_2", sc
             )
         finally:
             self.pw.stop()
