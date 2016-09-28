@@ -1,3 +1,4 @@
+import time
 import unittest
 
 # this import must be done *BEFORE* Gtk/Glib/etc *AND* pytestshot !
@@ -30,6 +31,7 @@ class TestSettings(unittest.TestCase):
         try:
             action = self.pw.main_window.actions['open_settings'][1]
             GLib.idle_add(action.do)
+            time.sleep(3)
             try:
                 self.pw.wait()
                 self.assertNotEqual(action.dialog, None)
@@ -46,6 +48,7 @@ class TestSettings(unittest.TestCase):
         try:
             action = self.pw.main_window.actions['open_settings'][1]
             GLib.idle_add(action.do)
+            time.sleep(3)
             try:
                 self.pw.wait()
                 self.assertNotEqual(action.dialog, None)
