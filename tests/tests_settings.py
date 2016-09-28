@@ -1,9 +1,9 @@
-import time
 import unittest
 
 # this import must be done *BEFORE* Gtk/Glib/etc *AND* pytestshot !
 from . import paperwork
 
+import pyinsane2
 import pytestshot
 
 import gi
@@ -20,6 +20,9 @@ from paperwork.frontend.util.config import load_config
 
 class TestSettings(unittest.TestCase):
     def setUp(self):
+        # to speed up the scanner search during tests, we do one right now
+        pyinsane2.get_devices()
+
         self.pw = paperwork.PaperworkInstance()
 
     def test_open(self):
