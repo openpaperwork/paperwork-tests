@@ -84,7 +84,7 @@ class PaperworkInstance(object):
                 loop_again = Gtk.events_pending()
                 if loop_again:
                     pytestshot.wait()
-        time.sleep(0.5)  # force thread yielding
+        time.sleep(1)  # force thread yielding
 
     def stop(self):
         pytestshot.wait()

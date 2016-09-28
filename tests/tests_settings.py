@@ -1,3 +1,4 @@
+import time
 import unittest
 
 # this import must be done *BEFORE* Gtk/Glib/etc *AND* pytestshot !
@@ -31,7 +32,8 @@ class TestSettings(unittest.TestCase):
                 self.assertNotEqual(action.dialog, None)
                 sc = pytestshot.screenshot(action.dialog.window.get_window())
             finally:
-                GLib.idle_add(action.dialog.window.destroy)
+                if action.dialog:
+                    GLib.idle_add(action.dialog.window.destroy)
         finally:
             self.pw.stop()
         pytestshot.assertScreenshot(self, "test_settings_open", sc)
@@ -61,7 +63,8 @@ class TestSettings(unittest.TestCase):
                 )
                 self.pw.wait()
             finally:
-                GLib.idle_add(action.dialog.window.destroy)
+                if action.dialog:
+                    GLib.idle_add(action.dialog.window.destroy)
                 self.pw.wait()
         finally:
             self.pw.stop()
