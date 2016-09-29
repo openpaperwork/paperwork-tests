@@ -241,3 +241,94 @@ class TestResize(unittest.TestCase):
             )
         finally:
             self.pw.stop()
+
+    def test_increase_with_zoom_auto_2(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            GLib.idle_add(
+                self.pw.main_window.page_drawers[2].emit,
+                'page-selected'
+            )
+            self.pw.wait()
+
+            self.pw.main_window.window.set_size_request(1000, 600)
+
+            self.pw.wait()
+
+            # Note: The scrollbars will try to stay on target
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_resized_zoom_auto_2", sc
+            )
+        finally:
+            self.pw.stop()
+
+    def test_increase_with_zoom_auto_3(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            GLib.idle_add(
+                self.pw.main_window.page_drawers[3].emit,
+                'page-selected'
+            )
+            self.pw.wait()
+
+            # scroll to the bottom right
+            canvas = self.pw.main_window.img['canvas']
+            canvas.hadjustment.set_value(canvas.hadjustment.get_upper())
+            canvas.vadjustment.set_value(canvas.vadjustment.get_upper())
+
+            self.pw.wait()
+
+            self.pw.main_window.window.set_size_request(1000, 600)
+
+            self.pw.wait()
+
+            # Note: The scrollbars will still to the botton right
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_resized_zoom_auto_3", sc
+            )
+        finally:
+            self.pw.stop()
+
+    def test_increase_with_zoom_manual(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20121213_1946_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            self.pw.main_window.set_zoom_level(0.05, auto=False)
+            self.pw.main_window.update_page_sizes()
+            canvas = self.pw.main_window.img['canvas']
+            canvas.recompute_size(upd_scrollbar_values=True)
+            canvas.redraw()
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_resized_zoom_manual_before", sc
+            )
+
+            self.pw.main_window.window.set_size_request(1000, 600)
+
+            self.pw.wait()
+
+            # Note: The scrollbars will still to the top left
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_resized_zoom_manual_after", sc
+            )
+        finally:
+            self.pw.stop()
