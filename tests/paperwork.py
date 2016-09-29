@@ -4,6 +4,7 @@ os.environ['LANG'] = 'C'
 os.environ['XDG_DATA_HOME'] = 'tmp'
 os.environ['GTK_THEME'] = 'HighContrast'
 os.environ['XDG_DTA_DIRS'] = '/usr/local/share:/usr/share'
+os.environ['GDK_RENDERING'] = 'image'
 
 import logging
 logging.disable(logging.DEBUG)
