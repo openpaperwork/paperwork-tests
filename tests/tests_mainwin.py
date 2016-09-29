@@ -217,3 +217,27 @@ class TestPage(unittest.TestCase):
         finally:
             self.pw.stop()
 
+
+class TestResize(unittest.TestCase):
+    def setUp(self):
+        self.pw = paperwork.PaperworkInstance()
+
+    def test_increase_with_zoom_auto(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20130126_1833_26")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            self.pw.main_window.window.set_size_request(1000, 600)
+
+            self.pw.wait()
+
+            # Note: The scrollbars should stick to (0, 0)
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_resized_zoom_auto", sc
+            )
+        finally:
+            self.pw.stop()
