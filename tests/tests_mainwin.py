@@ -332,3 +332,25 @@ class TestResize(unittest.TestCase):
             )
         finally:
             self.pw.stop()
+
+
+class TestDocProperties(unittest.TestCase):
+    def setUp(self):
+        self.pw = paperwork.PaperworkInstance()
+
+    def test_show_doc_properties(self):
+        self.pw.start()
+        try:
+            doc = self.pw.docsearch.get_doc_from_docid("20090215_1952_46")
+            self.pw.main_window.show_doc(doc)
+            self.pw.wait()
+
+            GLib.idle_add(self.pw.main_window.switch_leftpane, 'doc_properties')
+            self.pw.wait()
+
+            sc = pytestshot.screenshot(self.pw.gdk_window)
+            pytestshot.assertScreenshot(
+                self, "test_main_win_doc_properties_show", sc
+            )
+        finally:
+            self.pw.stop()
