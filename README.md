@@ -16,14 +16,14 @@ It means they have to be run on a reference system:
 
 ## Running the tests
 
-$ sudo apt install python3-nosetests
-$ sudo pip3 install pytestshots
-$ nosetests -sv
+$ sudo apt install python3-nose
+$ sudo pip3 install pytestshot
+$ nosetests3 -sv
 
 
 ## Implementation
 
-Backend's test are simple classical tests.
+Backend's tests are simple classical tests.
 
 Frontend's tests mostly relies on screenshots. See
 [pytestshot](https://github.com/jflesch/pytestshot#readme).
