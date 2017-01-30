@@ -153,9 +153,9 @@ Redo OCR on all the documents,Not tested,Not tested,OK 2016/11/08,OK 2017/01/25
 ,Version,,,
 Tests,0.2,0.3.0,1.0,1.1
 Preview of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/25
-Printing of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,TODO
+Printing of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
 Preview of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/26
-Printing of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,TODO
+Printing of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
 ,,,,
 Import,,,,
 ,Version,,,
