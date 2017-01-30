@@ -28,7 +28,7 @@ To check: When ""Apply"" is clicked, the configuration is updated with the selec
 "Select another resolution: 
 To check:
 0.2.x: When ""Apply"" is clicked, the configuration is updated with the new resolution
-0.3.x: When the dialog is closed, the configuration is updated with the new resolution",OK,OK 2015/12/10,OK 2016/11/07,?
+0.3.x: When the dialog is closed, the configuration is updated with the new resolution",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/30
 "Disable OCR: 
 To check: When ""Apply"" is clicked, the configuration is updated with the new OCR setting",OK,OK 2015/12/10,Automated,Automated
 "Select OCR + german + 2 angles: 
@@ -92,25 +92,25 @@ Labels are guessed,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
  Multiple scans,,,,
 ,Version,,,
 Tests,0.2,0.3.0,1.0,1.1
-"Multiscan dialog: when the dialog is opened while an editable document is selected, the document list starts with ""current document"" (+ 0 pages)",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: when the dialog is not opened while an editable document or is opened on a new document, the document list does not start with ""current document""",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: Clicking on ""add"" adds a document to the list with 1 page to scan",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: Clicking on ""remove"" removes a document from the list",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: Button ""Remove"" is disable when the selected document is ""current document""",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: Clicking on ""modify"" let changes the number of pages for the selected document",OK,Not tested,OK 2016/11/07,TODO
-Multiscan dialog: Double clicking on the number of pages for a document let change this number,OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: When the scan is started, a thumbnails list is displayed (all gray)",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: While scanning, the thumbnails are updated on-the-fly",OK,Not tested,OK 2016/11/07,TODO
-"Multiscan dialog: While running the OCR, a spinner is displayed above the corresponding thumbnail",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: Scan animation: Scan is displayed on-the-fly during scanning",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: Scan animation: Red line shows where the scan currently is",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: OCR animation: Disabled angles are crossed",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: OCR animation: Spinners are displayed on each page orientation",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: OCR animation: Spinners are removed after each OCR process ends",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: OCR animation: When all the OCR processes are done, zoom on the best one",OK,Not tested,OK 2016/11/07,TODO
-"Main window, for each page: End of scan & OCR: The new page is displayed and selected",OK,Not tested,OK 2016/11/07,TODO
-End of scan & OCR: The document is added in the document list and selected,OK,Not tested,OK 2016/11/07,TODO
+"Multiscan dialog: when the dialog is opened while an editable document is selected, the document list starts with ""current document"" (+ 0 pages)",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: when the dialog is not opened while an editable document or is opened on a new document, the document list does not start with ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: Clicking on ""add"" adds a document to the list with 1 page to scan",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: Clicking on ""remove"" removes a document from the list",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: Button ""Remove"" is disable when the selected document is ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: Clicking on ""modify"" let changes the number of pages for the selected document",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+Multiscan dialog: Double clicking on the number of pages for a document let change this number,OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: When the scan is started, a thumbnails list is displayed (all gray)",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: While scanning, the thumbnails are updated on-the-fly",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Multiscan dialog: While running the OCR, a spinner is displayed above the corresponding thumbnail",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: Scan animation: Scan is displayed on-the-fly during scanning",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: Scan animation: Red line shows where the scan currently is",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: OCR animation: Disabled angles are crossed",OK,N/A,N/A,N/A
+"Main window, for each page: OCR animation: Spinners are displayed on each page orientation",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: OCR animation: Spinners are removed after each OCR process ends",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: OCR animation: When all the OCR processes are done, zoom on the best one",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+"Main window, for each page: End of scan & OCR: The new page is displayed and selected",OK,Not tested,OK 2016/11/07,OK 2017/01/30
+End of scan & OCR: The document is added in the document list and selected,OK,Not tested,OK 2016/11/07,OK 2017/01/30
 ,,,,
  Page editing,,,,
 ,Version,,,
@@ -187,4 +187,4 @@ Ctrl+PageUp / Ctrl+PageDown to browse documents,Not tested,Not tested,OK 2016/11
 Shell,,,,
 ,Version,,,
 Tests,0.2,0.3.0,1.0,1.1
-paperwork-shell scan,Not tested,Not tested,Not tested,TODO
+paperwork-shell scan,Not tested,Not tested,Not tested,OK 2017/01/30
