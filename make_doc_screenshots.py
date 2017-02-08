@@ -28,7 +28,7 @@ def get_widget_position(widget):
 
 def save_sc(filename, image,
             crop_around_widget=None, crop_size=(150, 150),
-            add_cursor=False):
+            add_cursor=False, cursor_offset=10):
     img_size = image.size
 
     if crop_around_widget:
@@ -49,7 +49,8 @@ def save_sc(filename, image,
         )
         image = image.crop(crop)
         if add_cursor and not isinstance(add_cursor, tuple):
-            add_cursor = (center[0] - crop[0] + 10, center[1] - crop[1] + 10)
+            add_cursor = (center[0] - crop[0] + cursor_offset,
+                          center[1] - crop[1] + cursor_offset)
 
     if add_cursor and not isinstance(add_cursor, tuple):
         add_cursor = (int(img_size[0] / 2), int(img_size[1] / 2))
@@ -119,6 +120,7 @@ def gen_import_pdf(pw):
     pw.wait()
     img = pytestshot.screenshot(pw.gdk_window)
     save_sc("import_pdf_en_0002.png", img, menu, add_cursor=True)
+    save_sc("paperwork_import.png", img, menu, add_cursor=True)
 
 
 def gen_import_pdf3(pw):
@@ -153,6 +155,78 @@ def gen_new_doc(pw):
             crop_size=(100, 80), add_cursor=True)
 
 
+def gen_paperwork_export(pw):
+    menu = pw.main_window.widget_tree.get_object("menubuttonWindowAdvanced")
+    GLib.idle_add(menu.clicked)
+    time.sleep(1)
+    pw.wait()
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("paperwork_export_0001.png", img, menu, add_cursor=True,
+            crop_size=(150, 200))
+    # XXX(Jflesch): no way to make paperwork_export_0002.png ...
+
+
+def gen_paperwork_export3(pw):
+    doc = pw.docsearch.get_doc_from_docid("20121213_1946_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+
+    action = pw.main_window.actions['open_export_page_dialog'][1]
+    GLib.idle_add(action.do)
+    time.sleep(3)
+    pw.wait()
+
+    GLib.idle_add(
+        pw.main_window.export['export_path'].set_text,
+        "Documents/out.png"
+    )
+    GLib.idle_add(pw.main_window.export['buttons']['ok'].set_sensitive, True)
+    pw.wait()
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("paperwork_export_0003.png", img,
+            pw.main_window.export['buttons']['ok'],
+            add_cursor=True,
+            crop_size=(300, 150))
+
+
+def gen_goto_labels_and_memo(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    doclist = pw.main_window.doclist.gui['list']
+    row = doclist.get_selected_rows()[0]
+    row_children = row.get_children()[0].get_children()
+    buttons = row_children[2]  # thumbnail, docname+labels, >buttons<
+    button = buttons.get_children()[0]
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("goto_labels_and_memo.png", img, button, add_cursor=True,
+            crop_size=(300, 300), cursor_offset=2)
+
+
+def gen_label_and_memo(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    GLib.idle_add(pw.main_window.switch_leftpane, 'doc_properties')
+    pw.wait()
+
+    scrollbars = pw.main_window.widget_tree.get_object("box_left_docproperties")
+    vadj = scrollbars.get_vadjustment()
+    GLib.idle_add(vadj.set_value, vadj.get_upper())
+    pw.wait()
+
+    memo = pw.main_window.doc_properties_panel.widgets['extra_keywords']
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("label_and_memo.png", img, memo, crop_size=(300, 200))
+
+
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
@@ -161,6 +235,10 @@ SCREENSHOTS = {
     "import_pdf3": gen_import_pdf3,
     "import_pdf4": gen_import_pdf4,
     "new_doc": gen_new_doc,
+    "export": gen_paperwork_export,
+    "export3": gen_paperwork_export3,
+    "goto_labels_and_memo": gen_goto_labels_and_memo,
+    "label_and_memo": gen_label_and_memo,
 }
 
 
@@ -181,9 +259,10 @@ def main(argv):
         paperwork_inst = paperwork.PaperworkInstance()
         paperwork_inst.start()
         try:
-            time.sleep(1)
+            time.sleep(3)
             paperwork_inst.wait()
             sc_method(paperwork_inst)
+            paperwork_inst.wait()
         finally:
             paperwork_inst.stop()
 
