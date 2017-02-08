@@ -16,7 +16,6 @@ import pytestshot
 from tests import paperwork
 
 from paperwork_backend.util import rm_rf
-from paperwork.frontend.mainwindow.docs import ActionDeleteDoc
 
 OUT_DIRECTORY = "doc_screenshots"
 
@@ -93,22 +92,6 @@ def gen_adf_multiscan(pw):
     finally:
         GLib.idle_add(action.dialog.window.destroy)
     pw.wait()
-
-
-def gen_adf_settings(pw):
-    action = pw.main_window.actions['open_settings'][1]
-    GLib.idle_add(action.do)
-    time.sleep(3)
-    try:
-        sources = action.dialog.device_settings['source']['gui']
-        GLib.idle_add(sources.popup)
-        pw.wait()
-
-        img = pytestshot.screenshot(action.dialog.window.get_window())
-        save_sc("adf_settings.png", img, sources, add_cursor=True,
-                crop_size=(250, 150))
-    finally:
-        GLib.idle_add(action.dialog.window.destroy)
 
 
 def gen_import_pdf(pw):
@@ -252,7 +235,6 @@ def gen_paperwork_search(pw):
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
-    "adf_settings": gen_adf_settings,
     "import_pdf": gen_import_pdf,
     "import_pdf3": gen_import_pdf3,
     "import_pdf4": gen_import_pdf4,
