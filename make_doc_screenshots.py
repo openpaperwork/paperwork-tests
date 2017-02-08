@@ -9,6 +9,8 @@ import PIL.Image
 os.environ['KEEP_ENV'] = "1"
 os.environ["LANG"] = "C"
 
+from gi.repository import GLib
+
 import pytestshot
 
 from tests import paperwork
@@ -68,20 +70,50 @@ def gen_adf_access(pw):
     save_sc("adf_access.png", img, menu, add_cursor=True)
 
 
-SCREENSHOTS = [
-    gen_adf_access,
-]
+def gen_adf_multiscan(pw):
+    doc = pw.docsearch.get_doc_from_docid("20121213_1946_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+
+    action = pw.main_window.actions['multi_scan'][1]
+    GLib.idle_add(action.do)
+    pw.wait()
+
+    try:
+        GLib.idle_add(action.dialog.actions['add_doc'][1].do)
+        pw.wait()
+
+        treeview = action.dialog.lists['docs']['gui']
+        treeview.get_selection().select_path([1])
+        pw.wait()
+        img = pytestshot.screenshot(action.dialog.window.get_window())
+        save_sc("adf_multiscan.png", img,
+                add_cursor=(500, 75))
+    finally:
+        GLib.idle_add(action.dialog.window.destroy)
+    pw.wait()
+
+
+SCREENSHOTS = {
+    "adf_access": gen_adf_access,
+    "adf_multiscan": gen_adf_multiscan,
+}
 
 
 def main(argv):
     rm_rf(OUT_DIRECTORY)
     os.mkdir(OUT_DIRECTORY)
 
-    for screenshot in SCREENSHOTS:
+    args = argv[1:]
+
+    for (sc_name, sc_method) in SCREENSHOTS.items():
+        if args != [] and sc_name not in args:
+            continue
+
         paperwork_inst = paperwork.PaperworkInstance()
         paperwork_inst.start()
         try:
-            screenshot(paperwork_inst)
+            sc_method(paperwork_inst)
         finally:
             paperwork_inst.stop()
 
