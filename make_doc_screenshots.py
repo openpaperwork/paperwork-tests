@@ -282,15 +282,6 @@ def main(argv):
         paperwork_inst = paperwork.PaperworkInstance()
         paperwork_inst.start()
         try:
-            # remove this document. It is only useful for testing
-            mw = paperwork_inst.main_window
-            doc = mw.docsearch.get_doc_from_docid("weird name")
-            GLib.idle_add(ActionDeleteDoc(mw, doc)._do_delete)
-
-            paperwork_inst.wait()
-            time.sleep(1)
-            paperwork_inst.wait()
-
             # weird workaround for annoying bug
             GLib.idle_add(
                 paperwork_inst.main_window.doclist._on_scrollbar_value_changed

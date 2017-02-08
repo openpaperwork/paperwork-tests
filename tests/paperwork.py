@@ -44,6 +44,9 @@ def setup_test_env():
     os.mkdir("tmp")
     shutil.copy("orig_paperwork.conf", "paperwork.conf")
     shutil.copytree("orig_data", "data")
+    if os.getenv('KEEP_ENV', '0') == "1":
+        # we are taking screenshots, not testing. drop document 'weird name'
+        shutil.rmtree("data/weird name")
 
 
 class PaperworkInstance(object):
