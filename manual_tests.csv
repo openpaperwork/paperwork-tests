@@ -64,6 +64,7 @@ To check: When opening another document, keywords are still highlighted",OK,OK 2
 Windows resizing,OK,OK 2015/12/10,Automated,Automated
 Predicted labels are displayed in bold,OK,N/A,N/A,N/A
 Selected labels are checked,OK,OK 2015/12/10,Automated,Automated
+"To check : in page grid, border appears around the page when the mouse is over it",Not tested,Not tested,Not tested,Not tested
 ,,,,
 Search,,,,
 ,Version,,,
