@@ -94,17 +94,37 @@ def gen_adf_multiscan(pw):
     pw.wait()
 
 
+def gen_adf_settings(pw):
+    action = pw.main_window.actions['open_settings'][1]
+    GLib.idle_add(action.do)
+    time.sleep(3)
+    try:
+        sources = action.dialog.device_settings['source']['gui']
+        GLib.idle_add(sources.popup)
+        pw.wait()
+
+        img = pytestshot.screenshot(action.dialog.window.get_window())
+        save_sc("adf_settings.png", img, sources, add_cursor=True)
+    finally:
+        GLib.idle_add(action.dialog.window.destroy)
+
+
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
+    "adf_settings": gen_adf_settings,
 }
 
 
 def main(argv):
-    rm_rf(OUT_DIRECTORY)
-    os.mkdir(OUT_DIRECTORY)
-
     args = argv[1:]
+
+    if args != []:
+        rm_rf(OUT_DIRECTORY)
+    try:
+        os.mkdir(OUT_DIRECTORY)
+    except:
+        pass
 
     for (sc_name, sc_method) in SCREENSHOTS.items():
         if args != [] and sc_name not in args:
