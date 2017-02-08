@@ -121,7 +121,8 @@ def gen_import_pdf(pw):
     pw.wait()
     img = pytestshot.screenshot(pw.gdk_window)
     save_sc("import_pdf_en_0002.png", img, menu, add_cursor=True)
-    save_sc("paperwork_import.png", img, menu, add_cursor=True)
+    save_sc("paperwork_import.png", img, menu, add_cursor=True,
+            crop_size=(100, 100))
 
 
 def gen_import_pdf3(pw):
@@ -207,7 +208,7 @@ def gen_goto_labels_and_memo(pw):
 
     img = pytestshot.screenshot(pw.gdk_window)
     save_sc("paperwork_goto_labels_and_memo.png", img, button, add_cursor=True,
-            crop_size=(300, 300), cursor_offset=2)
+            crop_size=(220, 150), cursor_offset=2)
 
 
 def gen_label_and_memo(pw):
