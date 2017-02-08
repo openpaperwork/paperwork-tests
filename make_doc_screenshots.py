@@ -16,6 +16,7 @@ import pytestshot
 from tests import paperwork
 
 from paperwork_backend.util import rm_rf
+from paperwork.frontend.mainwindow.docs import ActionDeleteDoc
 
 OUT_DIRECTORY = "doc_screenshots"
 
@@ -130,7 +131,9 @@ def gen_import_pdf3(pw):
 
     try:
         dirpath = os.path.abspath("orig_data/20130126_1833_26")
-        action._select_file_dialog.select_filename(os.path.join(dirpath, "doc.pdf"))
+        action._select_file_dialog.select_filename(
+            os.path.join(dirpath, "doc.pdf")
+        )
         pw.wait()
         img = pytestshot.screenshot(action._select_file_dialog.get_window())
         save_sc("import_pdf_en_0003.png", img, add_cursor=(600, 160))
@@ -203,7 +206,7 @@ def gen_goto_labels_and_memo(pw):
     button = buttons.get_children()[0]
 
     img = pytestshot.screenshot(pw.gdk_window)
-    save_sc("goto_labels_and_memo.png", img, button, add_cursor=True,
+    save_sc("paperwork_goto_labels_and_memo.png", img, button, add_cursor=True,
             crop_size=(300, 300), cursor_offset=2)
 
 
@@ -224,7 +227,7 @@ def gen_label_and_memo(pw):
     memo = pw.main_window.doc_properties_panel.widgets['extra_keywords']
 
     img = pytestshot.screenshot(pw.gdk_window)
-    save_sc("label_and_memo.png", img, memo, crop_size=(300, 200))
+    save_sc("paperwork_label_and_memo.png", img, memo, crop_size=(300, 200))
 
 
 def gen_paperwork_scan(pw):
@@ -279,8 +282,23 @@ def main(argv):
         paperwork_inst = paperwork.PaperworkInstance()
         paperwork_inst.start()
         try:
-            time.sleep(3)
+            # remove this document. It is only useful for testing
+            mw = paperwork_inst.main_window
+            doc = mw.docsearch.get_doc_from_docid("weird name")
+            GLib.idle_add(ActionDeleteDoc(mw, doc)._do_delete)
+
             paperwork_inst.wait()
+            time.sleep(1)
+            paperwork_inst.wait()
+
+            # weird workaround for annoying bug
+            GLib.idle_add(
+                paperwork_inst.main_window.doclist._on_scrollbar_value_changed
+            )
+            paperwork_inst.wait()
+            time.sleep(1)
+            paperwork_inst.wait()
+
             sc_method(paperwork_inst)
             paperwork_inst.wait()
         finally:

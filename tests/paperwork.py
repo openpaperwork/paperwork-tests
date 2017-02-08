@@ -55,6 +55,8 @@ class PaperworkInstance(object):
 
         if os.getenv('KEEP_ENV', '0') != "1":
             mainwindow.__version__ = "TEST"
+        else:
+            mainwindow.__version__ = ""
         mainwindow.g_must_init_app = False
 
         self.main_window = mainwindow.MainWindow(config)
