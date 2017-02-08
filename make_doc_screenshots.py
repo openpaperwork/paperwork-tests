@@ -227,6 +227,24 @@ def gen_label_and_memo(pw):
     save_sc("label_and_memo.png", img, memo, crop_size=(300, 200))
 
 
+def gen_paperwork_scan(pw):
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("paperwork_scan.png", img,
+            pw.main_window.actions['single_scan'][0][0],
+            crop_size=(100, 100), add_cursor=True)
+
+
+def gen_paperwork_search(pw):
+    field = pw.main_window.actions['search'][0][0]
+    GLib.idle_add(field.set_text, "contrat")
+    time.sleep(2)
+    pw.wait()
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("paperwork_search.png", img, field,
+            crop_size=(200, 200), add_cursor=True)
+
+
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
@@ -239,6 +257,8 @@ SCREENSHOTS = {
     "export3": gen_paperwork_export3,
     "goto_labels_and_memo": gen_goto_labels_and_memo,
     "label_and_memo": gen_label_and_memo,
+    "paperwork_scan": gen_paperwork_scan,
+    "paperwork_search": gen_paperwork_search,
 }
 
 
