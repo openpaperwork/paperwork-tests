@@ -1,10 +1,11 @@
 import os
 # Must be set *BEFORE* import Gtk/GLib/etc and pytestshot !
-os.environ['LANG'] = 'C'
-os.environ['XDG_DATA_HOME'] = 'tmp'
-os.environ['GTK_THEME'] = 'HighContrast'
-os.environ['XDG_DTA_DIRS'] = '/usr/local/share:/usr/share'
-os.environ['GDK_RENDERING'] = 'image'
+if os.getenv('KEEP_ENV', '0') != "1":
+    os.environ['LANG'] = 'C'
+    os.environ['XDG_DATA_HOME'] = 'tmp'
+    os.environ['GTK_THEME'] = 'HighContrast'
+    os.environ['XDG_DTA_DIRS'] = '/usr/local/share:/usr/share'
+    os.environ['GDK_RENDERING'] = 'image'
 
 import logging
 logging.disable(logging.DEBUG)
@@ -51,7 +52,9 @@ class PaperworkInstance(object):
 
         config = load_config()
         config.read()
-        mainwindow.__version__ = "TEST"
+
+        if os.getenv('KEEP_ENV', '0') != "1":
+            mainwindow.__version__ = "TEST"
         mainwindow.g_must_init_app = False
 
         self.main_window = mainwindow.MainWindow(config)
