@@ -190,7 +190,7 @@ def gen_paperwork_export3(pw):
     save_sc("paperwork_export_0003.png", img,
             pw.main_window.export['buttons']['ok'],
             add_cursor=True,
-            crop_size=(300, 150))
+            crop_size=(550, 250))
 
 
 def gen_goto_labels_and_memo(pw):
