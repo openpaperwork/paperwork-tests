@@ -27,7 +27,7 @@ def get_widget_position(widget):
 
 
 def save_sc(filename, image,
-            crop_around_widget=None, crop_diameter=150,
+            crop_around_widget=None, crop_size=(150, 150),
             add_cursor=False):
     img_size = image.size
 
@@ -42,10 +42,10 @@ def save_sc(filename, image,
             min(max(0, position[1] + int(size[1] / 2)), img_size[1])
         )
         crop = (
-            min(max(0, position[0] - crop_diameter), img_size[0]),
-            min(max(0, position[1] - crop_diameter), img_size[1]),
-            min(max(0, position[0] + crop_diameter), img_size[0]),
-            min(max(0, position[1] + crop_diameter), img_size[1])
+            min(max(0, center[0] - crop_size[0]), img_size[0]),
+            min(max(0, center[1] - crop_size[1]), img_size[1]),
+            min(max(0, center[0] + crop_size[0]), img_size[0]),
+            min(max(0, center[1] + crop_size[1]), img_size[1])
         )
         image = image.crop(crop)
         if add_cursor and not isinstance(add_cursor, tuple):
@@ -87,8 +87,7 @@ def gen_adf_multiscan(pw):
         treeview.get_selection().select_path([1])
         pw.wait()
         img = pytestshot.screenshot(action.dialog.window.get_window())
-        save_sc("adf_multiscan.png", img,
-                add_cursor=(500, 75))
+        save_sc("adf_multiscan.png", img, add_cursor=(500, 75))
     finally:
         GLib.idle_add(action.dialog.window.destroy)
     pw.wait()
@@ -104,22 +103,71 @@ def gen_adf_settings(pw):
         pw.wait()
 
         img = pytestshot.screenshot(action.dialog.window.get_window())
-        save_sc("adf_settings.png", img, sources, add_cursor=True)
+        save_sc("adf_settings.png", img, sources, add_cursor=True,
+                crop_size=(250, 150))
     finally:
         GLib.idle_add(action.dialog.window.destroy)
+
+
+def gen_import_pdf(pw):
+    menu = pw.main_window.widget_tree.get_object("menubuttonOtherScans")
+    pw.wait()
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("import_pdf_en_0001.png", img, menu, add_cursor=True)
+
+    menu.clicked()
+    pw.wait()
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("import_pdf_en_0002.png", img, menu, add_cursor=True)
+
+
+def gen_import_pdf3(pw):
+    action = pw.main_window.actions['import'][1]
+    GLib.idle_add(action.do)
+    pw.wait()
+
+    try:
+        dirpath = os.path.abspath("orig_data/20130126_1833_26")
+        action._select_file_dialog.select_filename(os.path.join(dirpath, "doc.pdf"))
+        pw.wait()
+        img = pytestshot.screenshot(action._select_file_dialog.get_window())
+        save_sc("import_pdf_en_0003.png", img, add_cursor=(600, 160))
+    finally:
+        GLib.idle_add(action._select_file_dialog.destroy)
+
+
+def gen_import_pdf4(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("import_pdf_en_0004.png", img)
+
+
+def gen_new_doc(pw):
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("new_doc.png", img,
+            pw.main_window.actions['new_doc'][0][0],
+            crop_size=(100, 80), add_cursor=True)
 
 
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
     "adf_settings": gen_adf_settings,
+    "import_pdf": gen_import_pdf,
+    "import_pdf3": gen_import_pdf3,
+    "import_pdf4": gen_import_pdf4,
+    "new_doc": gen_new_doc,
 }
 
 
 def main(argv):
     args = argv[1:]
 
-    if args != []:
+    if args == []:
         rm_rf(OUT_DIRECTORY)
     try:
         os.mkdir(OUT_DIRECTORY)
@@ -133,6 +181,8 @@ def main(argv):
         paperwork_inst = paperwork.PaperworkInstance()
         paperwork_inst.start()
         try:
+            time.sleep(1)
+            paperwork_inst.wait()
             sc_method(paperwork_inst)
         finally:
             paperwork_inst.stop()
