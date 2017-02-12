@@ -245,7 +245,7 @@ def gen_paperwork_search(pw):
 
     img = pytestshot.screenshot(pw.gdk_window)
     save_sc("paperwork_search.png", img, field,
-            crop_size=(200, 200), add_cursor=True)
+            crop_size=(200, 100), add_cursor=True)
 
 
 def gen_settings_disable_ocr(pw):
@@ -261,10 +261,95 @@ def gen_settings_disable_ocr(pw):
         GLib.idle_add(action.dialog.window.destroy)
 
 
+def gen_add_label(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    GLib.idle_add(pw.main_window.switch_leftpane, 'doc_properties')
+    pw.wait()
+
+    scrollbars = pw.main_window.widget_tree.get_object("box_left_docproperties")
+    vadj = scrollbars.get_vadjustment()
+    GLib.idle_add(vadj.set_value, vadj.get_upper())
+    time.sleep(1)
+    pw.wait()
+
+    add_label = pw.main_window.doc_properties_panel.widgets['button_add_label']
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("add_label.png", img, add_label, crop_size=(300, 200),
+            add_cursor=True)
+
+
+def gen_label_select(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    GLib.idle_add(pw.main_window.switch_leftpane, 'doc_properties')
+    pw.wait()
+
+    scrollbars = pw.main_window.widget_tree.get_object("box_left_docproperties")
+    vadj = scrollbars.get_vadjustment()
+    GLib.idle_add(vadj.set_value, vadj.get_upper())
+    time.sleep(1)
+    pw.wait()
+
+    rows = pw.main_window.doc_properties_panel.widgets['labels']
+    row = rows.get_children()[4]
+    row_box = row.get_children()[0]
+
+    # >selected<, edit_label_button, label
+    select_button = row_box.get_children()[0]
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("label_select.png", img, select_button, crop_size=(300, 200),
+            add_cursor=True)
+
+
+def gen_label_goto_edit(pw):
+    doc = pw.docsearch.get_doc_from_docid("20130126_1902_26")
+    pw.main_window.show_doc(doc)
+    pw.wait()
+    time.sleep(1)
+
+    GLib.idle_add(pw.main_window.switch_leftpane, 'doc_properties')
+    pw.wait()
+
+    scrollbars = pw.main_window.widget_tree.get_object("box_left_docproperties")
+    vadj = scrollbars.get_vadjustment()
+    GLib.idle_add(vadj.set_value, vadj.get_upper())
+    time.sleep(1)
+    pw.wait()
+
+    rows = pw.main_window.doc_properties_panel.widgets['labels']
+    row = rows.get_children()[4]
+    row_box = row.get_children()[0]
+
+    # selected, >edit_label_button<, label
+    select_button = row_box.get_children()[1]
+
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("label_goto_edit.png", img, select_button, crop_size=(300, 200),
+            add_cursor=True)
+
+
+def gen_goto_advanced_search(pw):
+    button = pw.main_window.actions['open_search_dialog'][0][0]
+    img = pytestshot.screenshot(pw.gdk_window)
+    save_sc("goto_advanced_search.png", img, button,
+            crop_size=(150, 75), add_cursor=True)
+
+
 SCREENSHOTS = {
+    "add_label": gen_add_label,
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
     "adf_settings": gen_adf_settings,
+    "goto_advanced_search": gen_goto_advanced_search,
     "import_pdf": gen_import_pdf,
     "import_pdf3": gen_import_pdf3,
     "import_pdf4": gen_import_pdf4,
@@ -273,6 +358,8 @@ SCREENSHOTS = {
     "export3": gen_paperwork_export3,
     "goto_labels_and_memo": gen_goto_labels_and_memo,
     "label_and_memo": gen_label_and_memo,
+    "label_goto_edit": gen_label_goto_edit,
+    "label_select": gen_label_select,
     "paperwork_scan": gen_paperwork_scan,
     "paperwork_search": gen_paperwork_search,
     "settings_disable_ocr": gen_settings_disable_ocr,
