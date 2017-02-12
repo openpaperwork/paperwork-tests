@@ -16,7 +16,6 @@ import pytestshot
 from tests import paperwork
 
 from paperwork_backend.util import rm_rf
-from paperwork.frontend.mainwindow.docs import ActionDeleteDoc
 
 OUT_DIRECTORY = "doc_screenshots"
 
@@ -249,6 +248,19 @@ def gen_paperwork_search(pw):
             crop_size=(200, 200), add_cursor=True)
 
 
+def gen_settings_disable_ocr(pw):
+    action = pw.main_window.actions['open_settings'][1]
+    GLib.idle_add(action.do)
+    time.sleep(3)
+    try:
+        sources = action.dialog.ocr_settings['enabled']['gui']
+        img = pytestshot.screenshot(action.dialog.window.get_window())
+        save_sc("settings_disable_ocr.png", img, sources, add_cursor=True,
+                crop_size=(250, 100))
+    finally:
+        GLib.idle_add(action.dialog.window.destroy)
+
+
 SCREENSHOTS = {
     "adf_access": gen_adf_access,
     "adf_multiscan": gen_adf_multiscan,
@@ -263,6 +275,7 @@ SCREENSHOTS = {
     "label_and_memo": gen_label_and_memo,
     "paperwork_scan": gen_paperwork_scan,
     "paperwork_search": gen_paperwork_search,
+    "settings_disable_ocr": gen_settings_disable_ocr,
 }
 
 
