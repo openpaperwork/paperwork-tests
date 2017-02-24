@@ -16,10 +16,11 @@ It means they have to be run on a reference system:
 
 ## Running the tests
 
+```sh
 $ sudo apt install python3-nose
 $ sudo pip3 install pytestshot
 $ nosetests3 -sv
-
+```
 
 ## Implementation
 
