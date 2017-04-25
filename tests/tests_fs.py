@@ -29,7 +29,29 @@ class TestGio(unittest.TestCase):
         self.assertEqual(self.fs.join("file:///home/jflesch/kwain", "toto.txt"),
                          "file:///home/jflesch/kwain/toto.txt")
 
-    def test_readwrite(self):
+    def test_readwrite_binary(self):
+        name = None
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            name = tmp_file.name
+        uri_name = self.fs.safe(name)
+        fd = None
+
+        with self.fs.open(uri_name, 'wb') as _fd:
+            self.assertIsNotNone(_fd)
+            fd = _fd
+            fd.write(b"TEST_LINE\n")
+        self.assertTrue(fd.closed)
+
+        with self.fs.open(uri_name, 'rb') as _fd:
+            self.assertIsNotNone(_fd)
+            fd = _fd
+            r = fd.read()
+            self.assertEqual(r, b"TEST_LINE\n")
+        self.assertTrue(fd.closed)
+
+        os.unlink(name)
+
+    def test_readwrite_utf(self):
         name = None
         with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
             name = tmp_file.name
@@ -39,14 +61,14 @@ class TestGio(unittest.TestCase):
         with self.fs.open(uri_name, 'w') as _fd:
             self.assertIsNotNone(_fd)
             fd = _fd
-            fd.write(b"TEST_LINE\n")
+            fd.write("TEST_LINE\n")
         self.assertTrue(fd.closed)
 
         with self.fs.open(uri_name, 'r') as _fd:
             self.assertIsNotNone(_fd)
             fd = _fd
             r = fd.read()
-            self.assertEqual(r, b"TEST_LINE\n")
+            self.assertEqual(r, "TEST_LINE\n")
         self.assertTrue(fd.closed)
 
         os.unlink(name)
