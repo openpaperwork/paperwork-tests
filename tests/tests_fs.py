@@ -64,11 +64,17 @@ class TestGio(unittest.TestCase):
             fd.write("TEST_LINE\n")
         self.assertTrue(fd.closed)
 
+        with self.fs.open(uri_name, 'a') as _fd:
+            self.assertIsNotNone(_fd)
+            fd = _fd
+            fd.write("TEST_B\n")
+        self.assertTrue(fd.closed)
+
         with self.fs.open(uri_name, 'r') as _fd:
             self.assertIsNotNone(_fd)
             fd = _fd
             r = fd.read()
-            self.assertEqual(r, "TEST_LINE\n")
+            self.assertEqual(r, "TEST_LINE\nTEST_B\n")
         self.assertTrue(fd.closed)
 
         os.unlink(name)
