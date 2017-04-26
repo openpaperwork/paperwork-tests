@@ -79,6 +79,8 @@ class TestGio(unittest.TestCase):
 
         self.assertTrue(fd.closed)
 
+        self.assertTrue(self.fs.getsize(uri_name) > 0)
+
         self.fs.unlink(uri_name)
 
     def test_exists(self):
