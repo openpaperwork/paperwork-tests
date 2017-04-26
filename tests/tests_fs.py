@@ -33,8 +33,8 @@ class TestGio(unittest.TestCase):
         name = None
         with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
             name = tmp_file.name
-        uri_name = self.fs.safe(name)
         fd = None
+        uri_name = self.fs.safe(name)
 
         with self.fs.open(uri_name, 'wb') as _fd:
             self.assertIsNotNone(_fd)
@@ -55,8 +55,8 @@ class TestGio(unittest.TestCase):
         name = None
         with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
             name = tmp_file.name
-        uri_name = self.fs.safe(name)
         fd = None
+        uri_name = self.fs.safe(name)
 
         with self.fs.open(uri_name, 'w') as _fd:
             self.assertIsNotNone(_fd)
@@ -72,6 +72,17 @@ class TestGio(unittest.TestCase):
         self.assertTrue(fd.closed)
 
         os.unlink(name)
+
+    def test_exists(self):
+        name = None
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            name = tmp_file.name
+        fd = None
+        uri_name = self.fs.safe(name)
+
+        self.assertTrue(self.fs.exists(uri_name))
+        os.unlink(name)
+        self.assertFalse(self.fs.exists(uri_name))
 
     def tearDown(self):
         pass
