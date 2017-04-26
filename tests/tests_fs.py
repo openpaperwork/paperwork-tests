@@ -49,7 +49,7 @@ class TestGio(unittest.TestCase):
             self.assertEqual(r, b"TEST_LINE\n")
         self.assertTrue(fd.closed)
 
-        os.unlink(name)
+        self.fs.unlink(uri_name)
 
     def test_readwrite_utf(self):
         name = None
@@ -77,7 +77,7 @@ class TestGio(unittest.TestCase):
             self.assertEqual(r, "TEST_LINE\nTEST_B\n")
         self.assertTrue(fd.closed)
 
-        os.unlink(name)
+        self.fs.unlink(uri_name)
 
     def test_exists(self):
         name = None
@@ -87,7 +87,7 @@ class TestGio(unittest.TestCase):
         uri_name = self.fs.safe(name)
 
         self.assertTrue(self.fs.exists(uri_name))
-        os.unlink(name)
+        self.fs.unlink(uri_name)
         self.assertFalse(self.fs.exists(uri_name))
 
     def tearDown(self):
