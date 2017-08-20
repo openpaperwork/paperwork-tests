@@ -25,7 +25,7 @@ gi.require_version('Poppler', '0.18')
 gi.require_version('Gdk', '3.0')
 gi.require_version('Gtk', '3.0')
 
-from gi.repository import Gtk
+from gi.repository import GLib
 
 from paperwork.frontend import mainwindow
 from paperwork.frontend.util.config import load_config
@@ -50,6 +50,9 @@ def setup_test_env():
 
 
 class PaperworkInstance(object):
+    def __init__(self):
+        self.main_loop = GLib.MainLoop()
+
     def start(self):
         setup_test_env()
 
@@ -62,14 +65,14 @@ class PaperworkInstance(object):
             mainwindow.__version__ = ""
         mainwindow.g_must_init_app = False
 
-        self.main_window = mainwindow.MainWindow(config)
+        self.main_window = mainwindow.MainWindow(config, self.main_loop)
         mainwindow.ActionRefreshIndex(self.main_window, config).do()
         self.thread = threading.Thread(target=self._gtk_thread)
         self.thread.start()
         self.wait()
 
     def _gtk_thread(self):
-        Gtk.main()
+        self.main_loop.run()
 
     def _get_gdk_win(self):
         return self.main_window.window.get_window()
@@ -90,7 +93,8 @@ class PaperworkInstance(object):
                 time.sleep(0.1)  # force thread yielding
                 for scheduler in self.main_window.schedulers.values():
                     scheduler.wait_for_all()
-                loop_again = Gtk.events_pending()
+                context = self.main_loop.get_context()
+                loop_again = context.pending()
                 if loop_again:
                     pytestshot.wait()
         time.sleep(0.5)  # force thread yielding
@@ -105,6 +109,7 @@ class PaperworkInstance(object):
         time.sleep(0.1)  # force thread yielding
         pytestshot.wait()
         pytestshot.exit()
+        self.main_loop.quit()
         self.thread.join()
         if threading.active_count() > 1:
             print (
