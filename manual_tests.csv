@@ -1,191 +1,191 @@
-First start,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Start without any paperwork.conf / index / document,,,"KO 2016/11/09
- #510",OK 2017/01/25
-,,,,
-Settings,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
+First start,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Start without any paperwork.conf / index / document,,,KO 2016/11/09 #510,OK 2017/01/25,KO 2017/08/21 #665
+,,,,,
+Settings,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
 "When the dialog opens:
-To check: scanners correctly detected ",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/27
+To check: scanners correctly detected ",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
 "Changing work directory:
-To check: When ""Apply"" is clicked, the new directory must be taken into account",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25
+To check: When ""Apply"" is clicked, the new directory must be taken into account",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
 "Calibration scan: 
 To check: When/while no scanner is available, the button can't be clicked
 To check: Animation: mouse cursor = spinner
 To check: Animation: scan animation
-To check: Once the scan is done, the previous calibration settings are displayed",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/27
+To check: Once the scan is done, the previous calibration settings are displayed",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
 "Calibration: 
 To check: Handles can be moved
 To check: Zoom settings works
 To check: Clicking outside of an handle change the zoom level (ajusted --> 1.0 --> adjusted --> ...)
-To check: When ""Ok"" is clicked, the configuration is updated with the new settings",OK,OK 2015/12/10,OK 2016/11/08,OK 2017/01/27
+To check: When ""Ok"" is clicked, the configuration is updated with the new settings",OK,OK 2015/12/10,OK 2016/11/08,OK 2017/01/27,OK 2017/08/21
 "Select another scanner: 
 To check: The available resolution list must be reloaded
 To check: The calibration scan must be done using the correct scanner
-To check: When ""Apply"" is clicked, the configuration is updated with the selected scanner",OK,OK 2015/12/10,?,?
+To check: When ""Apply"" is clicked, the configuration is updated with the selected scanner",OK,OK 2015/12/10,?,?,?
 "Select another resolution: 
 To check:
 0.2.x: When ""Apply"" is clicked, the configuration is updated with the new resolution
-0.3.x: When the dialog is closed, the configuration is updated with the new resolution",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/30
+0.3.x: When the dialog is closed, the configuration is updated with the new resolution",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
 "Disable OCR: 
-To check: When ""Apply"" is clicked, the configuration is updated with the new OCR setting",OK,OK 2015/12/10,Automated,Automated
+To check: When ""Apply"" is clicked, the configuration is updated with the new OCR setting",OK,OK 2015/12/10,Automated,Automated,Automated
 "Select OCR + german + 2 angles: 
-To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,N/A,N/A,N/A
+To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,N/A,N/A,N/A,N/A
 "Select OCR + french + 2 angles: 
-To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,N/A,N/A,N/A
+To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,N/A,N/A,N/A,N/A
 "Select OCR + french + 4 angles: 
-To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-,,,,
-Document viewing,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
+To check: When ""Apply"" is clicked, the configuration is updated with the new OCR settings",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+,,,,,
+Document viewing,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
 "Zoom level: 
-To check: zoom level must be saved when Paperwork stops and restored when Paperwork (re)start",OK,N/A,N/A,N/A
+To check: zoom level must be saved when Paperwork stops and restored when Paperwork (re)start",OK,N/A,N/A,N/A,N/A
 "Sorting: 
-To check: sorting must be saved when Paperwork stops and restored when Paperwork (re)start",OK,N/A,N/A,N/A
+To check: sorting must be saved when Paperwork stops and restored when Paperwork (re)start",OK,N/A,N/A,N/A,N/A
 "Click on a document: 
 To check: Document is selected
 To check: Page list is updated
-To check: First page is loaded and then displayed",OK,OK 2015/12/10,Automated,Automated
+To check: First page is loaded and then displayed",OK,OK 2015/12/10,Automated,Automated,Automated
 "Click on a page: 
 To check: 0.2.x: The page is selected in the page list
-To check: The page is loaded and then displayed (--> scrolled to the page)",OK,OK 2015/12/10,Automated,Automated
+To check: The page is loaded and then displayed (--> scrolled to the page)",OK,OK 2015/12/10,Automated,Automated,Automated
 "Scrolling: 
 To check: On scrolling, page are loaded as they are displayed
 To check: 0.2.x: Page are correctly selected in the page list
-To check: Page number is updated based on the page on which the user currently is",OK,OK 2015/12/10,Automated,Automated
+To check: Page number is updated based on the page on which the user currently is",OK,OK 2015/12/10,Automated,Automated,Automated
 "Keyword highlighting: 
-To check: Words below mouse cursor are highlighted",OK,OK 2015/12/10,Automated,Automated
+To check: Words below mouse cursor are highlighted",OK,OK 2015/12/10,Automated,Automated,Automated
 "Advanced settings --> highlight all keywords: 
 To check: All the keywords are highlighted
-To check: When opening another document, keywords are still highlighted",OK,OK 2015/12/10,Automated,Automated
-Windows resizing,OK,OK 2015/12/10,Automated,Automated
-Predicted labels are displayed in bold,OK,N/A,N/A,N/A
-Selected labels are checked,OK,OK 2015/12/10,Automated,Automated
-"To checkÂ : in page grid, border appears around the page when the mouse is over it",Not tested,Not tested,Not tested,Not tested
-,,,,
-Search,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Ctrl-F: Jump to to the search text field + select the previous search,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25
-While typing: Doc list is updated to show only documents containing the keywords (approximate search),OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-While typing: Page list : Pages of the current document containing the keywords get highlighted,OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-While typing: Keywords are highlighted on the currently displayed page(s),OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-While typing: Suggestions are provided,,KO 2015/12/10 [415] ,?,OK 2017/01/25
-,,,,
- Single scan,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-"Ctrl+N switch to ""New document""",OK,OK 2015/12/22,OK 2016/11/08,OK 2017/01/25
-Scan animation: Scan is displayed on-the-fly during scanning,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-Scan animation: Red line shows where the scan currently is,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-"OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-OCR animation: Disabled angles are crossed,OK,OK 2015/12/22,N/A,N/A
-OCR animation: Spinners are displayed on each active page orientation,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-OCR animation: Spinners are removed after each OCR process ends,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-"OCR animation: When all the OCR processes are done, zoom on the best one",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-End of scan & OCR: The new page is displayed and selected,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-End of scan & OCR: The document is added in the document list and selected,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-Labels are guessed,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27
-,,,,
- Multiple scans,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-"Multiscan dialog: when the dialog is opened while an editable document is selected, the document list starts with ""current document"" (+ 0 pages)",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: when the dialog is not opened while an editable document or is opened on a new document, the document list does not start with ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: Clicking on ""add"" adds a document to the list with 1 page to scan",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: Clicking on ""remove"" removes a document from the list",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: Button ""Remove"" is disable when the selected document is ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: Clicking on ""modify"" let changes the number of pages for the selected document",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-Multiscan dialog: Double clicking on the number of pages for a document let change this number,OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: When the scan is started, a thumbnails list is displayed (all gray)",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: While scanning, the thumbnails are updated on-the-fly",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Multiscan dialog: While running the OCR, a spinner is displayed above the corresponding thumbnail",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: Scan animation: Scan is displayed on-the-fly during scanning",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: Scan animation: Red line shows where the scan currently is",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: OCR animation: Disabled angles are crossed",OK,N/A,N/A,N/A
-"Main window, for each page: OCR animation: Spinners are displayed on each page orientation",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: OCR animation: Spinners are removed after each OCR process ends",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: OCR animation: When all the OCR processes are done, zoom on the best one",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-"Main window, for each page: End of scan & OCR: The new page is displayed and selected",OK,Not tested,OK 2016/11/07,OK 2017/01/30
-End of scan & OCR: The document is added in the document list and selected,OK,Not tested,OK 2016/11/07,OK 2017/01/30
-,,,,
- Page editing,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
+To check: When opening another document, keywords are still highlighted",OK,OK 2015/12/10,Automated,Automated,Automated
+Windows resizing,OK,OK 2015/12/10,Automated,Automated,Automated
+Predicted labels are displayed in bold,OK,N/A,N/A,N/A,N/A
+Selected labels are checked,OK,OK 2015/12/10,Automated,Automated,Automated
+"To check : in page grid, border appears around the page when the mouse is over it",Not tested,Not tested,Not tested,Not tested,OK 2017/08/21
+,,,,,
+Search,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Ctrl-F: Jump to to the search text field + select the previous search,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+While typing: Doc list is updated to show only documents containing the keywords (approximate search),OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+While typing: Page list : Pages of the current document containing the keywords get highlighted,OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+While typing: Keywords are highlighted on the currently displayed page(s),OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+While typing: Suggestions are provided,,KO 2015/12/10 [415] ,?,OK 2017/01/25,OK 2017/08/21 (need work)
+,,,,,
+ Single scan,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+"Ctrl+N switch to ""New document""",OK,OK 2015/12/22,OK 2016/11/08,OK 2017/01/25,OK 2017/08/21
+Scan animation: Scan is displayed on-the-fly during scanning,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+Scan animation: Red line shows where the scan currently is,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+"OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+OCR animation: Disabled angles are crossed,OK,OK 2015/12/22,N/A,N/A,N/A
+OCR animation: Spinners are displayed on each active page orientation,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+OCR animation: Spinners are removed after each OCR process ends,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+"OCR animation: When all the OCR processes are done, zoom on the best one",OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+End of scan & OCR: The new page is displayed and selected,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+End of scan & OCR: The document is added in the document list and selected,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+Labels are guessed,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/27,OK 2017/08/21
+,,,,,
+ Multiple scans,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+"Multiscan dialog: when the dialog is opened while an editable document is selected, the document list starts with ""current document"" (+ 0 pages)",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: when the dialog is not opened while an editable document or is opened on a new document, the document list does not start with ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: Clicking on ""add"" adds a document to the list with 1 page to scan",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: Clicking on ""remove"" removes a document from the list",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: Button ""Remove"" is disable when the selected document is ""current document""",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: Clicking on ""modify"" let changes the number of pages for the selected document",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Multiscan dialog: Double clicking on the number of pages for a document let change this number,OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: When the scan is started, a thumbnails list is displayed (all gray)",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: While scanning, the thumbnails are updated on-the-fly",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Multiscan dialog: While running the OCR, a spinner is displayed above the corresponding thumbnail",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: Scan animation: Scan is displayed on-the-fly during scanning",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: Scan animation: Red line shows where the scan currently is",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: OCR animation: Page is reduced, display 4 times, and rotated 4 times at different angles",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: OCR animation: Disabled angles are crossed",OK,N/A,N/A,N/A,N/A
+"Main window, for each page: OCR animation: Spinners are displayed on each page orientation",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: OCR animation: Spinners are removed after each OCR process ends",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: OCR animation: When all the OCR processes are done, zoom on the best one",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Main window, for each page: End of scan & OCR: The new page is displayed and selected",OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+End of scan & OCR: The document is added in the document list and selected,OK,Not tested,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+,,,,,
+ Page editing,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
 "Page cutting: 
 The currently displayed page must be updated
 The page thumbnail in the page list must be updated
-The doc thumbnail in the page list must be updated",#326,OK,OK 2016/11/07,OK 2017/01/26
+The doc thumbnail in the page list must be updated",#326,OK,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
 "Page rotation: 
 The currently displayed page must be updated
 The page thumbnail in the page list must be updated
-The doc thumbnail in the page list must be updated",#326,OK,OK 2016/11/07,OK 2017/01/26
+The doc thumbnail in the page list must be updated",#326,OK,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
 "Page cutting + rotation: 
 The currently displayed page must be updated
 The page thumbnail in the page list must be updated
-The doc thumbnail in the page list must be updated",#326,KO 2015/12/10 [418] ,OK 2016/11/07,OK 2017/01/26
-Page color correction,,,OK 2016/11/07,OK 2017/01/26
-Deleting a page ,OK,OK,OK 2016/11/07,OK 2017/01/26
-,,,,
- Document editing,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Drag&Drop: Moving pages inside a document ,OK,OK,OK 2016/11/08,OK 2017/01/25
-Drag&Drop: Moving pages from a document to another ,OK,OK,OK 2016/11/07,OK 2017/01/25
-Drag&Drop: Moving pages from a document to a new one ,Not tested,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25
+The doc thumbnail in the page list must be updated",#326,KO 2015/12/10 [418] ,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
+Page color correction,N/A,N/A,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
+Deleting a page ,OK,OK,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
+,,,,,
+ Document editing,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Drag&Drop: Moving pages inside a document ,OK,OK,OK 2016/11/08,OK 2017/01/25,OK 2017/08/21
+Drag&Drop: Moving pages from a document to another ,OK,OK,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Drag&Drop: Moving pages from a document to a new one ,Not tested,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
 "Document edit dialog/panel: changing the date. 
 If the order of the document is changed by the date change, the document list must be updated accordingly
-The document must be correctly reselected in the document list",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-Document edit dialog: adding keywords + finding them by searching ,#327,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-Ctrl+E opens the document edit dialog ,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25
-Deleting a document ,OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25
-,,,,
- Redo OCR,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Redo OCR on the current document,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/25
-Redo OCR on all the documents,Not tested,Not tested,OK 2016/11/08,OK 2017/01/25
-,,,,
- Printing,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Preview of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/25
-Printing of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Preview of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/26
-Printing of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-,,,,
-Import,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Import JPEG / PNG,Not tested,Not tested,Not tested,OK 2017/01/25
-Import PDF,Not tested,Not tested,Not tested,OK 2017/01/25
-Number of imported documents displayed,Not tested,Not tested,Not tested,OK 2017/01/25
-Number of imported pages displayed,Not tested,Not tested,Not tested,OK 2017/01/25
-,,,,
- Export,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Document export: available formats: PDF,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Document export: changing the quality update the preview + estimated size,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Document export: saving,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/30
-"Page export: available formats: JPG, PNG",OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Page export: changing the quality update the preview + estimated size,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Page export: changing the format update the preview,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30
-Page export: saving,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/30
-Document export: multiple PDF exports in a folder,Not tested,Not tested,OK 2016/11/07,OK 2017/01/30
-,,,,
- Mouse & Keyboard,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-Mouse scrolling with 3rd button,Not tested,Not tested,OK 2016/11/07,OK 2017/01/25
-Zoom changed with Ctrl+Mouse wheel,Not tested,Not tested,OK 2016/11/07,OK 2017/01/25
-Ctrl+PageUp / Ctrl+PageDown to browse documents,Not tested,Not tested,OK 2016/11/08,OK 2017/01/25
-,,,,
-Shell,,,,
-,Version,,,
-Tests,0.2,0.3.0,1.0,1.1
-paperwork-shell scan,Not tested,Not tested,Not tested,OK 2017/01/30
+The document must be correctly reselected in the document list",OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Document edit dialog: adding keywords + finding them by searching ,#327,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Ctrl+E opens the document edit dialog ,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Deleting a document ,OK,OK 2015/12/10,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+,,,,,
+ Redo OCR,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Redo OCR on the current document,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Redo OCR on all the documents,Not tested,Not tested,OK 2016/11/08,OK 2017/01/25,OK 2017/08/21
+,,,,,
+ Printing,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Preview of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Printing of a portrait page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,Not tested
+Preview of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/26,OK 2017/08/21
+Printing of a landscape page(s),OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,Not tested
+,,,,,
+Import,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Import JPEG / PNG,Not tested,Not tested,Not tested,OK 2017/01/25,OK 2017/08/21
+Import PDF,Not tested,Not tested,Not tested,OK 2017/01/25,OK 2017/08/21
+Number of imported documents displayed,Not tested,Not tested,Not tested,OK 2017/01/25,OK 2017/08/21
+Number of imported pages displayed,Not tested,Not tested,Not tested,OK 2017/01/25,OK 2017/08/21
+,,,,,
+ Export,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Document export: available formats: PDF,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Document export: changing the quality update the preview + estimated size,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Document export: saving,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+"Page export: available formats: JPG, PNG",OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Page export: changing the quality update the preview + estimated size,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Page export: changing the format update the preview,OK,OK 2015/12/14,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Page export: saving,OK,OK 2015/12/22,OK 2016/11/07,OK 2017/01/30,OK 2017/08/21
+Document export: multiple PDF exports in a folder,Not tested,Not tested,OK 2016/11/07,OK 2017/01/30,KO 2017/08/21 #666
+,,,,,
+ Mouse & Keyboard,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+Mouse scrolling with 3rd button,Not tested,Not tested,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Zoom changed with Ctrl+Mouse wheel,Not tested,Not tested,OK 2016/11/07,OK 2017/01/25,OK 2017/08/21
+Ctrl+PageUp / Ctrl+PageDown to browse documents,Not tested,Not tested,OK 2016/11/08,OK 2017/01/25,OK 2017/08/21
+PageUp / PageDown to go to previous / next pages,?,?,?,?,OK 2017/08/21
+,,,,,
+Shell,,,,,
+,Version,,,,
+Tests,0.2,0.3.0,1,1.1,1.2.1
+paperwork-shell scan,Not tested,Not tested,Not tested,OK 2017/01/30,OK 2017/08/21
