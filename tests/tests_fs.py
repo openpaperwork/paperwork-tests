@@ -1,5 +1,7 @@
+import logging
 import os
 import unittest
+import sys
 import tempfile
 
 import paperwork_backend.fs
@@ -91,7 +93,8 @@ class TestGio(unittest.TestCase):
         uri_name = self.fs.safe(name)
 
         self.assertTrue(self.fs.exists(uri_name))
-        self.fs.unlink(uri_name)
+        # just to test rm_rf a bit
+        self.fs.rm_rf(uri_name)
         self.assertFalse(self.fs.exists(uri_name))
 
     def tearDown(self):
